@@ -2,6 +2,7 @@ import os
 import cfscrape
 import zipfile
 from BeautifulSoup import *
+import shutil
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -70,6 +71,10 @@ def main():
         finally:
             print 'closing'
             zf.close()
+
+        #Delete the folder
+        print 'deleting the images'
+        shutil.rmtree("./Downloads" + "/" + serie + "/" + chapter)
         
 
         #Add 1 to the chapter number
